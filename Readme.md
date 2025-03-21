@@ -19,5 +19,12 @@ Para deixar em **negrito** e *itálico*.
 ```java
 
 public class OlaMundo{
-    public static void main(String args)
+    public static void main(String args[]) {
+        System.out.println("Olá mundo!");
+    }
 }
+```
+
+## Mascote do Java
+
+![Duke - Mascote do Java](Duke.png)
