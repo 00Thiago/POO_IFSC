@@ -20,15 +20,15 @@ class Caneta { // classe é um tipo, tem outros: enum, interface...
 
 
     public void definirNivelTinta(double numNivel){ // entrada pelo App
-        nivelTinta = ((numNivel >= 0) && (numNivel <= 100)? numNivel: -1); // condicional para verificar se o nivel de tinta está entre 0 e 100%, se não estiver atribui o estado -1 ("erro")
+        nivelTinta = ((numNivel >= 0) && (numNivel <= 100)? numNivel: -1); // condicional para verificar se o nivel de tinta informado pelo App está entre 0 e 100%, se não estiver atribui o estado -1 ("erro")
     }
-    public double obterNivelTinta(){ // para impressão
-        return nivelTinta; // tem que ter um get (definir) e um set (obter) tbm pra poder alterar a lógica interna da classe sem ter que alterar a classe cliente (App)
+    public double obterNivelTinta(){ // para impressão pelo App
+        return nivelTinta; // tem sempre que ter os métodos get (definir) e um set (obter) tbm pra poder alterar a lógica dentro da classe sem ter que alterar a classe cliente (App)
     } 
 
 
-    public void abrirFechar(){ // inverte o booblean (padrão é FALSE)
-        aberta = !aberta;
+    public void abrirFechar(){ 
+        aberta = !aberta;  // inverte o booblean (padrão é FALSE)
     }
     public boolean isAberta(){ // para impressão
         return aberta;
