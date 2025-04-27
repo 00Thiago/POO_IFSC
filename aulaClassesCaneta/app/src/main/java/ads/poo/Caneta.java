@@ -38,34 +38,57 @@ class Caneta { // classe é um tipo, tem outros: enum, interface...
     public void tamanhoDesenho(int numTamanho){ // entrada pelo App
         definirDesenho = numTamanho;
     }
-    public String obterDesenho(){  // para impressão
-        String linha = "";
-        if (isAberta()){
-            while (nivelTinta >= 10) {
+   
+    /*public String obterDesenho(){  // para impressão
+        String linha = ""; // OU declara "-" para que em .repeat escreva o nome da variável ao inves de "-"
+        String erro = "Não foi possíve desenhar";
+        if (isAberta() && nivelTinta >= 10 && definirDesenho >= 10){
+            if (nivelTinta >= definirDesenho) {
                 while (definirDesenho >= 10) {
                     linha = linha + "-";
                     definirDesenho = (definirDesenho-10);
                 }
-                nivelTinta = (nivelTinta-10);
-            } 
+            } else {
+                while (nivelTinta >= 10) {
+                    linha = linha + "-";
+                    nivelTinta = (nivelTinta-10);
+                }
+            }   
+        } else {
+            return erro;
+        }
+        return linha; 
+    } */
+
+public String obterDesenho(){  // para impressão
+        String linha = "";
+        String erro = "Não foi possíve desenhar";
+        int cont = 0;
+
+        if (isAberta() && nivelTinta >= 10 && definirDesenho >= 10){
+            if (nivelTinta >= definirDesenho) {
+                while (definirDesenho >= 10) {
+                    cont++;
+                    definirDesenho = (definirDesenho-10);
+                }
+            } else {
+                while (nivelTinta >= 10) {
+                    cont++;
+                    nivelTinta = (nivelTinta-10);
+                }
+            }
+            linha = "-".repeat(cont);
+        } else {
+            return erro;
         }
         return linha;
-        
-        //TODO implementar lógica
-            // if aberta
-            // quantos "-" eu consigo desenhar (cálculo)
-            // debitar o quantos da tinta
-            // return "-".repeat(quantos)
-            // while nivelTinta >= 10
-            
-            // public String desenhar()
-            // traco = desenho.repeat((definirDesenho))
-    } 
 
+    }
 }
-
-//OUTROS PADRÕES:
-    //int, byte, short, long: 0
-    //float, double: 0.0
-    //char: '\u0000'
-    //Objetos (incluindo String): null
+/*
+OUTROS PADRÕES:
+    int, byte, short, long: 0
+    float, double: 0.0
+    char: '\u0000'
+    Objetos (incluindo String): null
+*/
