@@ -11,33 +11,38 @@ class Caneta { // classe é um tipo, tem outros: enum, interface...
     // se não tiver dentro de método, é atributo
     
     // MÉTODOS (ou comportamentoS)
-    public void definirCor(String nomeCor){ // "portão" de entrada por App.java
-        cor = nomeCor; // Estado é o valor atual do atributo. Parâmetro é o valor informado para o método
+
+    public void definirCor(String nomeCor){ // "portão" para o parâmtro que entrará pelo App.java. Parâmetro é o valor informado para o método
+        cor = nomeCor; // estado é o parâmetro/valor atual do atributo (Ex.: Branco). 
     }
-    public String obterCor(){ // "portão" de saída/impressão pelo App.java
-        return cor; // Estado alterado pelo parâmetro branco
+    public String obterCor(){ // "portão" de saída/impressão para o App.java
+        return cor; // informa o estado atual que foi alterado pelo parâmetro branco. Inutil aqui, mas seria util se houvesse condicional
     }
 
 
     public void definirNivelTinta(double numNivel){ // entrada pelo App
-        nivelTinta = ((numNivel >= 0) && (numNivel <= 100)? numNivel: -1);
+
+        nivelTinta = ((numNivel >= 0) && (numNivel <= 100)? numNivel: -1); // condicional para verificar se o nivel de tinta informado pelo App está entre 0 e 100%, se não estiver atribui o estado -1 ("erro")
     }
-    public double obterNivelTinta(){ // para impressão
-        return nivelTinta;
-    } // tem que ter um get e um set tbm pra poder alterar a lógica interna da classe sem ter que alterar a classe cliente
+    public double obterNivelTinta(){ // para impressão pelo App
+        return nivelTinta; // tem sempre que ter os métodos get (definir) e um set (obter) tbm pra poder alterar a lógica dentro da classe sem ter que alterar a classe cliente (App)
+    } 
 
 
-    public void abrirFechar(){ // inverte o booblean (padrão é FALSE)
-        aberta = !aberta;
+    public void abrirFechar(){ 
+        aberta = !aberta;  // inverte o booblean (padrão é FALSE)
     }
     public boolean isAberta(){ // para impressão
         return aberta;
     }
 
-
     public void tamanhoDesenho(int numTamanho){ // entrada pelo App
         definirDesenho = numTamanho;
     }
+
+    public int numTamDesenho() {
+        return definirDesenho;
+    } 
    
     /*public String obterDesenho(){  // para impressão
         String linha = ""; // OU declara "-" para que em .repeat escreva o nome da variável ao inves de "-"
@@ -61,7 +66,7 @@ class Caneta { // classe é um tipo, tem outros: enum, interface...
     } */
 
 public String obterDesenho(){  // para impressão
-        String linha = "";
+        String linha;
         String erro = "Não foi possíve desenhar";
         int cont = 0;
 
