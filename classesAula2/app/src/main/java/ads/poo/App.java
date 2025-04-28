@@ -1,19 +1,21 @@
 package ads.poo;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
 
-        Contador contador = new Contador();
+        Contador cont = new Contador();
 
-        System.out.println(contador.mostrarValor());
+        Scanner entrada = new Scanner(System.in);
 
-        //contador.getValor(2);
+        System.out.println("Informe o valor inicial do contador: ");
+        cont.getValor(entrada.nextInt());
 
-        contador.incrementar();
+        System.out.println("Valor inicial: " + cont.mostrarValor());
 
-        System.out.println(contador.mostrarValor());
+        cont.incrementar(0);
 
-
-
+        System.out.println("Valor atual: " + cont.mostrarValor());
     }
 }
